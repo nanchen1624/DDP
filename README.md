@@ -4,20 +4,7 @@ The Implementation of the paper "Information Relaxation and A Duality-Driven Alg
 **Authors:** Nan Chen, Xiang Ma, Yanchu Liu, Wei Yu
 
 ## Abstract 
-We use the technique of information relaxation to develop a duality-driven iterative
-approach to obtaining and improving confidence interval estimates for the true value of
-finite-horizon stochastic dynamic programming problems. We show that the sequence
-of dual value estimates yielded from the proposed approach in principle monotonically
-converges to the true value function in a finite number of dual iterations. Aiming
-to overcome the curse of dimensionality in various applications, we also introduce a
-regression-based Monte Carlo algorithm for implementation. The new approach can be
-used not only to assess the quality of heuristic policies, but also to improve them if we
-find that their duality gap is large. We obtain the convergence rate of our Monte Carlo
-method in terms of the amounts of both basis functions and the sampled states. Finally,
-we demonstrate the effectiveness of our method in an optimal order execution problem
-with market friction and in an inventory management problem in the presence of lost sales and lead time. Both examples are well known in the literature to be difficult to
-solve for optimality. The experiments show that our method can significantly improve
-the heuristics suggested in the literature and obtain new policies with a satisfactory performance guarantee.
+We use the technique of information relaxation to develop a duality-driven iterative approach (DDP) to obtaining and improving conﬁdence interval estimates for the true value of ﬁnite-horizon stochastic dynamic programming problems. Each iteration of the algorithm solves an optimization-expectation procedure. We show that the sequence of dual value estimates yielded from the proposed approach in principle monotonically converges to the true value function in a ﬁnite number of dual iterations. Aiming to overcome the curse of dimensionality in various applications, we also introduce a regression-based Monte Carlo algorithm for implementation. The new approach can be used not only to assess the quality of heuristic policies, but also to improve them if we ﬁnd that their duality gap is large. We obtain the convergence rate of our Monte Carlo method in terms of the amounts of both basis functions and the sampled states. Finally, we demonstrate the eﬀectiveness of our method using an optimal order execution problem with market friction. The experiments show that our method can signiﬁcantly improve various heuristics commonly used in the literature to obtain new policies with a satisfactory performance guarantee. Some local optimization routines are used in the optimization step when we implement DDP in the numerical example. Inspired by Brown and Smith (2014), we propose an ex-post method for smooth convex dynamic programs to assess how the local optimality of the inner optimization impacts the convergence of the DDP algorithm.
 
 ## Description
 <!-- <!-- 
@@ -82,7 +69,7 @@ $$
 
 where, $\mathbf{P}$ is stock price, $\mathbf{X}$ is the signal, $\mathbf{S}$ is shares to purchase, $\mathbf{R}$ is target to go, and $\boldsymbol{\epsilon}$ and $\boldsymbol{\eta}$ are random noise.
 
-- The corresponding code:
+- The corresponding code for Table 1 in main text:
   - `main_initial_policy_simple.m` for the setting from a tractable simplification of the problem.
   - `main_initial_policy_lp.m` for the setting from linear program approximation.
   - `main_initial_policy_app.m` for the setting from the fitted value iteration approximation.
