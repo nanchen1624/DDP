@@ -1,3 +1,4 @@
+# DDP nn implementation: step 1
 import numpy as np
 import torch 
 import torch.nn as nn
