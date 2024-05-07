@@ -70,9 +70,19 @@ $$
 where, $\mathbf{P}$ is stock price, $\mathbf{X}$ is the signal, $\mathbf{S}$ is shares to purchase, $\mathbf{R}$ is target to go, and $\boldsymbol{\epsilon}$ and $\boldsymbol{\eta}$ are random noise.
 
 - The corresponding code for Table 1 in main text:
-  - `main_initial_policy_simple.m` for the setting from a tractable simplification of the problem.
-  - `main_initial_policy_lp.m` for the setting from linear program approximation.
-  - `main_initial_policy_app.m` for the setting from the fitted value iteration approximation.
+  - `order_execution\main_initial_policy_simple.m` for the setting from a tractable simplification of the problem.
+  - `order_execution\main_initial_policy_lp.m` for the setting from linear program approximation.
+  - `order_execution\main_initial_policy_app.m` for the setting from the fitted value iteration approximation.
+  - `order_execution\main_initial_policy_look.m` for the setting from the lookahead approximation.
+    
+- The code for Neural Networks implementation
+  - `NeuralNetwork\..` for the setting from the deep neural network approximation.
+  - `python dnn_policy_learn.py -step=100 ` 
+     use deep neural network based algorithm to approximate the policy with K=10^4 (-step=500, 1000 for K= 5*10^4, 10^5, respectively)
+  - `python generate_inital_value.py -step=100` 
+     use the policy learned from the previous step to get an initial guess of the value function
+  - `DDP\main_initial_policy_lagr.m` 
+     use DDP to tight dual gap (one should manually adjust the value of K inside this .m file)
 
 - Parameters:
   - $T=20$
